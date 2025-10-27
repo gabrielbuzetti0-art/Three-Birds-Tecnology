@@ -359,109 +359,7 @@
             color: #6b7280;
         }
 
-        /* Service Detail Pages */
-        .service-detail {
-            display: none;
-            padding: 10rem 2rem 5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .service-detail.active {
-            display: block;
-            animation: fadeIn 0.5s;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .back-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: #3b82f6;
-            text-decoration: none;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            transition: gap 0.3s;
-        }
-
-        .back-button:hover {
-            gap: 1rem;
-        }
-
-        .detail-header {
-            margin-bottom: 3rem;
-        }
-
-        .detail-header h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #ffffff, #3b82f6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .detail-content {
-            background: linear-gradient(135deg, rgba(31, 41, 55, 0.6), rgba(17, 24, 39, 0.6));
-            border: 1px solid rgba(59, 130, 246, 0.2);
-            border-radius: 16px;
-            padding: 3rem;
-        }
-
-        .detail-content h2 {
-            color: #3b82f6;
-            font-size: 2rem;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .detail-content h2:first-child {
-            margin-top: 0;
-        }
-
-        .detail-content ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .detail-content li {
-            padding: 0.8rem 0;
-            padding-left: 2rem;
-            position: relative;
-            color: #d1d5db;
-            line-height: 1.6;
-        }
-
-        .detail-content li::before {
-            content: '▹';
-            position: absolute;
-            left: 0;
-            color: #3b82f6;
-            font-size: 1.5rem;
-        }
-
-        .cta-box {
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(37, 99, 235, 0.1));
-            border: 2px solid #3b82f6;
-            border-radius: 12px;
-            padding: 2rem;
-            margin-top: 3rem;
-            text-align: center;
-        }
-
-        .cta-box h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
-
-        .cta-box p {
-            color: #9ca3af;
-            margin-bottom: 1.5rem;
-        }
-
+        /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
@@ -482,10 +380,6 @@
             .cta-buttons {
                 flex-direction: column;
             }
-
-            .detail-header h1 {
-                font-size: 2.5rem;
-            }
         }
     </style>
 </head>
@@ -495,97 +389,99 @@
         <nav>
             <div class="logo">Three Birds Technology</div>
             <ul class="nav-links">
-                <li><a href="#" onclick="showHome(); return false;">Início</a></li>
+                <li><a href="#home">Início</a></li>
                 <li><a href="#services">Serviços</a></li>
                 <li><a href="#contact">Contato</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Home Page -->
-    <div id="home-page">
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-background"></div>
-            <div class="grid-overlay"></div>
-            <div class="hero-content">
-                <h1>Transformando Ideias em Soluções Digitais Inteligentes</h1>
-                <p class="subtitle">Impulsionamos seu negócio com tecnologia de ponta e inteligência artificial</p>
-                <div class="cta-buttons">
-                    <a href="#services" class="btn btn-primary">Nossos Serviços</a>
-                    <a href="#contact" class="btn btn-secondary">Entre em Contato</a>
-                </div>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background"></div>
+        <div class="grid-overlay"></div>
+        <div class="hero-content">
+            <h1>Transformando Ideias em Soluções Digitais Inteligentes</h1>
+            <p class="subtitle">Impulsionamos seu negócio com tecnologia de ponta e inteligência artificial</p>
+            <div class="cta-buttons">
+                <a href="#services" class="btn btn-primary">Nossos Serviços</a>
+                <a href="#contact" class="btn btn-secondary">Entre em Contato</a>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Services Section -->
-        <section id="services" class="services">
-            <h2 class="section-title">Nossos Serviços</h2>
-            <p class="section-subtitle">Soluções tecnológicas completas para alavancar seu negócio</p>
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2 class="section-title">Nossos Serviços</h2>
+        <p class="section-subtitle">Soluções tecnológicas completas para alavancar seu negócio</p>
+        
+        <div class="services-grid">
+            <div class="service-card" onclick="window.location.href='websites.html'">
+                <div class="service-icon">🌐</div>
+                <h3>Criação de Sites</h3>
+                <p>Sites profissionais, responsivos e otimizados para conversão. Do institucional ao e-commerce, desenvolvemos a presença digital perfeita para sua marca.</p>
+                <span class="service-link">Saiba mais →</span>
+            </div>
+
+            <div class="service-card" onclick="window.location.href='software.html'">
+                <div class="service-icon">💻</div>
+                <h3>Desenvolvimento de Software</h3>
+                <p>Sistemas personalizados que automatizam processos e aumentam a eficiência do seu negócio. Soluções escaláveis e sob medida.</p>
+                <span class="service-link">Saiba mais →</span>
+            </div>
+
+            <div class="service-card" onclick="window.location.href='apps.html'">
+                <div class="service-icon">📱</div>
+                <h3>Aplicativos Mobile</h3>
+                <p>Apps nativos e híbridos para iOS e Android. Experiências mobile que conectam sua marca aos clientes de forma inovadora.</p>
+                <span class="service-link">Saiba mais →</span>
+            </div>
+
+            <div class="service-card" onclick="window.location.href='marketing.html'">
+                <div class="service-icon">📊</div>
+                <h3>Marketing Digital</h3>
+                <p>Estratégias completas de marketing digital com foco em resultados. SEO, mídia paga, redes sociais e análise de dados.</p>
+                <span class="service-link">Saiba mais →</span>
+            </div>
+
+            <div class="service-card" onclick="window.location.href='ia.html'">
+                <div class="service-icon">🤖</div>
+                <h3>Soluções com IA</h3>
+                <p>Integração de inteligência artificial para automação, análise preditiva, chatbots e otimização de processos empresariais.</p>
+                <span class="service-link">Saiba mais →</span>
+            </div>
+
+            <div class="service-card" onclick="window.location.href='automacao.html'">
+                <div class="service-icon">⚡</div>
+                <h3>Automação de Processos</h3>
+                <p>Automatize tarefas repetitivas e ganhe eficiência operacional. RPA, integração de sistemas e workflows inteligentes.</p>
+                <span class="service-link">Saiba mais →</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="contact-content">
+            <h2>Vamos Construir Algo Incrível Juntos?</h2>
+            <p>Entre em contato conosco e descubra como podemos impulsionar seu negócio com tecnologia de ponta</p>
             
-            <div class="services-grid">
-                <div class="service-card" onclick="window.location.href='websites.html'">
-                    <div class="service-icon">🌐</div>
-                    <h3>Criação de Sites</h3>
-                    <p>Sites profissionais, responsivos e otimizados para conversão. Do institucional ao e-commerce, desenvolvemos a presença digital perfeita para sua marca.</p>
-                    <span class="service-link">Saiba mais →</span>
-                </div>
-
-                <div class="service-card" onclick="window.location.href='websites.html'">
-                    <div class="service-icon">💻</div>
-                    <h3>Desenvolvimento de Software</h3>
-                    <p>Sistemas personalizados que automatizam processos e aumentam a eficiência do seu negócio. Soluções escaláveis e sob medida.</p>
-                    <span class="service-link">Saiba mais →</span>
-                </div>
-
-                <div class="service-card" onclick="window.location.href='websites.html'">
-                    <div class="service-icon">📱</div>
-                    <h3>Aplicativos Mobile</h3>
-                    <p>Apps nativos e híbridos para iOS e Android. Experiências mobile que conectam sua marca aos clientes de forma inovadora.</p>
-                    <span class="service-link">Saiba mais →</span>
-                </div>
-
-                <div class="service-card" onclick="window.location.href='websites.html'">
-                    <div class="service-icon">📊</div>
-                    <h3>Marketing Digital</h3>
-                    <p>Estratégias completas de marketing digital com foco em resultados. SEO, mídia paga, redes sociais e análise de dados.</p>
-                    <span class="service-link">Saiba mais →</span>
-                </div>
-
-                <div class="service-card" onclick="window.location.href='websites.html'">
-                    <div class="service-icon">🤖</div>
-                    <h3>Soluções com IA</h3>
-                    <p>Integração de inteligência artificial para automação, análise preditiva, chatbots e otimização de processos empresariais.</p>
-                    <span class="service-link">Saiba mais →</span>
-                </div>
-
-                <div class="service-card" onclick="window.location.href='websites.html'">
-                    <div class="service-icon">⚡</div>
-                    <h3>Automação de Processos</h3>
-                    <p>Automatize tarefas repetitivas e ganhe eficiência operacional. RPA, integração de sistemas e workflows inteligentes.</p>
-                    <span class="service-link">Saiba mais →</span>
-                </div>
+            <div class="social-buttons">
+                <a href="https://wa.me/5511999999999?text=Olá! Gostaria de conhecer os serviços da Three Birds Technology" target="_blank" class="social-btn">
+                    <span class="social-icon">📱</span>
+                    WhatsApp
+                </a>
+                <a href="https://instagram.com/threebirdstechnology" target="_blank" class="social-btn">
+                    <span class="social-icon">📸</span>
+                    Instagram
+                </a>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="contact">
-            <div class="contact-content">
-                <h2>Vamos Construir Algo Incrível Juntos?</h2>
-                <p>Entre em contato conosco e descubra como podemos impulsionar seu negócio com tecnologia de ponta</p>
-                
-                <div class="social-buttons">
-                    <a href="https://wa.me/5511999999999" target="_blank" class="social-btn">
-                        <span class="social-icon">📱</span>
-                        WhatsApp
-                    </a>
-                    <a href="https://instagram.com/threebirdstechnology" target="_blank" class="social-btn">
-                        <span class="social-icon">📸</span>
-                        Instagram
-                    </a>
-                </div>
-            </div>
-        </section>
-    </div>
-
-   
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Three Birds Technology. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
