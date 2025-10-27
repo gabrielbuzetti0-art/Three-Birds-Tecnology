@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soluções com Inteligência Artificial | Three Birds Technology</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+
+        .back-home {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.8rem 1.5rem;
+            border: 2px solid #3b82f6;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .back-home:hover {
+            background: #3b82f6;
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 10rem 2rem 5rem;
+            text-align: center;
+            background: 
+                radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #9ca3af;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Content Section */
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 5rem;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #3b82f6;
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #d1d5db;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, rgba(31, 41, 55, 0.6), rgba(17, 24, 39, 0.6));
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: #3b82f6;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .feature-card p {
+            font-size: 1rem;
+            color: #9ca3af;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background: linear-gradient(135deg, rgba(31, 41, 55, 0.4), rgba(17, 24, 39, 0.4));
+            padding: 5rem 2rem;
+            margin: 5rem 0;
+        }
+
+        .pricing-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-subtitle {
+            text-align: center;
+            color: #9ca3af;
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .price-card {
+            background: linear-gradient(135deg, rgba(31, 41, 55, 0.8), rgba(17, 24, 39, 0.8));
+            border: 2px solid rgba(59, 130, 246, 0.3);
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .price-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .price-card:hover {
+            transform: translateY(-10px);
+            border-color: #3b82f6;
+            box-shadow: 0 20px 60px rgba(59, 130, 246, 0.3);
+        }
+
+        .price-card:hover::before {
+            opacity: 1;
+        }
+
+        .price-card.featured {
+            border-color: #3b82f6;
+            transform: scale(1.05);
+        }
+
+        .popular-badge {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .price-card h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #3b82f6;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-period {
+            color: #9ca3af;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .features-list {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .features-list li {
+            padding: 0.8rem 0;
+            color: #d1d5db;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .features-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .delivery-time {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            color: #3b82f6;
+            font-weight: 600;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(37, 99, 235, 0.1));
+            border: 2px solid #3b82f6;
+            border-radius: 16px;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin: 5rem 0;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            color: #9ca3af;
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #0a0a0a;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        footer p {
+            color: #6b7280;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .pricing h2 {
+                font-size: 2rem;
+            }
+
+            .price-card.featured {
+                transform: scale(1);
+            }
+
+            .price {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Three Birds Technology</a>
+            <a href="index.html" class="back-home">← Voltar para Home</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Soluções com Inteligência Artificial</h1>
+        <p>O futuro da tecnologia aplicado ao seu negócio hoje</p>
+    </section>
+
+    <!-- Content -->
+    <div class="content">
+        <!-- O que oferecemos -->
+        <section class="section">
+            <h2>Aplicações de IA para o seu negócio</h2>
+            <p>Implementamos soluções de inteligência artificial que automatizam processos, melhoram decisões e criam experiências únicas para seus clientes. IA não é mais o futuro - é o presente competitivo.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>Chatbots Inteligentes</h3>
+                    <p>Assistentes virtuais que atendem clientes 24/7, reduzindo custos e aumentando satisfação.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Análise Preditiva</h3>
+                    <p>Preveja tendências, comportamentos e resultados usando machine learning e big data.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Recomendações Personalizadas</h3>
+                    <p>Sistemas que sugerem produtos e conteúdos baseados no comportamento do usuário.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">👁️</div>
+                    <h3>Visão Computacional</h3>
+                    <p>Reconhecimento de imagens, faces, objetos e análise visual automatizada.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🗣️</div>
+                    <h3>Processamento de Linguagem</h3>
+                    <p>Análise de sentimentos, resumos automáticos e geração de textos inteligentes.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>Automação Inteligente</h3>
+                    <p>RPA com IA que aprende e se adapta, automatizando tarefas complexas.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Como funciona -->
+        <section class="section">
+            <h2>Como implementamos IA no seu negócio</h2>
+            <p><strong>1. Diagnóstico de Oportunidades:</strong> Identificamos processos que podem ser otimizados com IA.</p>
+            <p><strong>2. Prova de Conceito (POC):</strong> Criamos um protótipo funcional para validar a solução.</p>
+            <p><strong>3. Treinamento do Modelo:</strong> Alimentamos a IA com dados relevantes do seu negócio.</p>
+            <p><strong>4. Integração:</strong> Conectamos a solução aos seus sistemas existentes.</p>
+            <p><strong>5. Monitoramento:</strong> Acompanhamos performance e ajustamos o modelo continuamente.</p>
+            <p><strong>6. Evolução:</strong> A IA aprende com novos dados e melhora automaticamente com o tempo.</p>
+        </section>
+
+        <!-- Benefícios -->
+        <section class="section">
+            <h2>Vantagens competitivas com IA</h2>
+            <p><strong>✓ Redução de Custos:</strong> Automatize tarefas repetitivas e libere sua equipe para atividades estratégicas.</p>
+            <p><strong>✓ Decisões Mais Inteligentes:</strong> Use dados e previsões para tomar decisões embasadas.</p>
+            <p><strong>✓ Experiência do Cliente:</strong> Atendimento personalizado e instantâneo que encanta.</p>
+            <p><strong>✓ Escalabilidade:</strong> Processe milhares de solicitações simultaneamente sem contratar mais pessoas.</p>
+            <p><strong>✓ Insights Valiosos:</strong> Descubra padrões e oportunidades escondidas nos seus dados.</p>
+            <p><strong>✓ Vantagem Competitiva:</strong> Saia na frente dos concorrentes com tecnologia de ponta.</p>
+        </section>
+
+        <!-- Casos de uso -->
+        <section class="section">
+            <h2>Casos de uso reais</h2>
+            <p><strong>E-commerce:</strong> Recomendação de produtos que aumentam ticket médio em 30-40%.</p>
+            <p><strong>Atendimento:</strong> Chatbots que resolvem 70% das dúvidas sem intervenção humana.</p>
+            <p><strong>Vendas:</strong> Previsão de churn e identificação de leads mais propensos a comprar.</p>
+            <p><strong>RH:</strong> Triagem automática de currículos e match inteligente de candidatos.</p>
+            <p><strong>Logística:</strong> Otimização de rotas e previsão de demanda.</p>
+            <p><strong>Marketing:</strong> Segmentação avançada e personalização em escala.</p>
+        </section>
+    </div>
+
+    <!-- Pricing Section -->
+    <section class="pricing">
+        <div class="pricing-container">
+            <h2>Planos de IA</h2>
+            <p class="pricing-subtitle">Soluções que se pagam com a eficiência gerada</p>
+            
+            <div class="pricing-grid">
+                <!-- Chatbot Básico -->
+                <div class="price-card">
+                    <h3>Chatbot Inteligente</h3>
+                    <div class="price">A partir de R$ 3.500</div>
+                    <p class="price-period">Valor sob consulta</p>
+                    
+                    <ul class="features-list">
+                        <li>Chatbot com IA para site/WhatsApp</li>
+                        <li>Treinamento com sua base de dados</li>
+                        <li>Respostas em linguagem natural</li>
+                        <li>Integração com CRM</li>
+                        <li>Dashboard de métricas</li>
+                        <li>Até 1000 conversas/mês</li>
+                        <li>3 meses de ajustes inclusos</li>
+                    </ul>
+                    
+                    <div class="delivery-time">⏱️ Entrega em 15 dias úteis</div>
+                    
+                    <a href="https://wa.me/5567999476082?text=Olá! Tenho interesse no Chatbot Inteligente. Gostaria de receber um orçamento personalizado." target="_blank" class="btn btn-primary">Solicitar Orçamento Personalizado</a>
+                </div>
+
+                <!-- Solução Personalizada -->
+                <div class="price-card featured">
+                    <span class="popular-badge">⭐ MAIS POPULAR</span>
+                    <h3>Solução IA Personalizada</h3>
+                    <div class="price">A partir de R$ 12.000</div>
+                    <p class="price-period">Valor sob consulta</p>
+                    
+                    <ul class="features-list">
+                        <li>Modelo de IA sob medida</li>
+                        <li>Análise preditiva ou recomendação</li>
+                        <li>Processamento de linguagem/imagem</li>
+                        <li>Integração completa com sistemas</li>
+                        <li>API personalizada</li>
+                        <li>Treinamento contínuo</li>
+                        <li>Dashboard avançado</li>
+                        <li>Documentação completa</li>
+                        <li>6 meses de suporte e ajustes</li>
+                    </ul>
+                    
+                    <div class="delivery-time">⏱️ Entrega em 45 dias úteis</div>
+                    
+                    <a href="https://wa.me/5567999476082?text=Olá! Tenho interesse em Solução IA Personalizada. Gostaria de receber um orçamento personalizado." target="_blank" class="btn btn-primary">Solicitar Orçamento Personalizado</a>
+                </div>
+
+                <!-- IA Empresarial -->
+                <div class="price-card">
+                    <h3>IA Empresarial</h3>
+                    <div class="price">A partir de R$ 25.000</div>
+                    <p class="price-period">Valor sob consulta</p>
+                    
+                    <ul class="features-list">
+                        <li>Múltiplos modelos de IA integrados</li>
+                        <li>Machine Learning avançado</li>
+                        <li>Deep Learning e redes neurais</li>
+                        <li>Processamento em tempo real</li>
+                        <li>Big Data e análise preditiva</li>
+                        <li>Computer Vision ou NLP avançado</li>
+                        <li>Infraestrutura em cloud escalável</li>
+                        <li>APIs robustas</li>
+                        <li>Monitoramento 24/7</li>
+                        <li>Equipe dedicada</li>
+                        <li>12 meses de evolução contínua</li>
+                    </ul>
+                    
+                    <div class="delivery-time">⏱️ Entrega em 90 dias úteis</div>
+                    
+                    <a href="https://wa.me/5567999476082?text=Olá! Tenho interesse em IA Empresarial. Gostaria de receber um orçamento personalizado." target="_blank" class="btn btn-primary">Solicitar Orçamento Personalizado</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <div class="content">
+        <section class="cta-section">
+            <h2>Pronto para o futuro com IA?</h2>
+            <p>Agende uma demonstração gratuita e veja a IA funcionando para o seu negócio!</p>
+            <a href="https://wa.me/5567999476082?text=Olá! Quero agendar uma demonstração de soluções com IA!" target="_blank" class="btn btn-primary">Agendar Demonstração Gratuita</a>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Three Birds Technology. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
