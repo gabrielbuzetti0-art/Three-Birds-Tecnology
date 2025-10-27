@@ -468,11 +468,19 @@
             
             <div class="social-buttons">
                 <a href="https://wa.me/5567999476082?text=Olá! Gostaria de conhecer os serviços da Three Birds Technology" target="_blank" class="social-btn">
-                    <span class="social-icon">📱</span>
+                    <span class="social-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                        </svg>
+                    </span>
                     WhatsApp
                 </a>
-                <a href="https://instagram.com/threebirdstech" target="_blank" class="social-btn">
-                    <span class="social-icon">📸</span>
+                <a href="https://instagram.com/threebirdstechnology" target="_blank" class="social-btn">
+                    <span class="social-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                        </svg>
+                    </span>
                     Instagram
                 </a>
             </div>
@@ -483,5 +491,330 @@
     <footer>
         <p>&copy; 2025 Three Birds Technology. Todos os direitos reservados.</p>
     </footer>
+
+    <!-- Chat IA -->
+    <div id="chat-widget">
+        <button id="chat-button" onclick="toggleChat()">
+            <span id="chat-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                    <circle cx="9" cy="10" r="1" fill="currentColor"/>
+                    <circle cx="15" cy="10" r="1" fill="currentColor"/>
+                    <path d="M9 14c.5.5 1.5 1 3 1s2.5-.5 3-1"/>
+                </svg>
+            </span>
+            <span id="chat-text">Assistente IA</span>
+        </button>
+        
+        <div id="chat-box" style="display: none;">
+            <div id="chat-header">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <div style="background: rgba(255,255,255,0.15); padding: 0.5rem; border-radius: 8px; display: flex; align-items: center;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            <circle cx="9" cy="10" r="1" fill="currentColor"/>
+                            <circle cx="15" cy="10" r="1" fill="currentColor"/>
+                            <path d="M9 14c.5.5 1.5 1 3 1s2.5-.5 3-1"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <strong>Assistente IA Three Birds</strong>
+                        <p style="font-size: 0.85rem; opacity: 0.9; margin: 0;">Online 24/7</p>
+                    </div>
+                </div>
+                <button onclick="toggleChat()" style="background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; padding: 0.5rem;">×</button>
+            </div>
+            
+            <div id="chat-messages">
+                <div class="bot-message">
+                    Olá! 👋 Sou o assistente virtual da Three Birds Technology!<br><br>
+                    Como posso ajudar você hoje?
+                </div>
+                
+                <div class="chat-options">
+                    <button onclick="sendMessage('Quero saber sobre criação de sites')">🌐 Criação de Sites</button>
+                    <button onclick="sendMessage('Preciso de um software personalizado')">💻 Software Personalizado</button>
+                    <button onclick="sendMessage('Quero desenvolver um app')">📱 Aplicativos Mobile</button>
+                    <button onclick="sendMessage('Preciso de marketing digital')">📊 Marketing Digital</button>
+                    <button onclick="sendMessage('Quero soluções com IA')">🤖 Soluções com IA</button>
+                    <button onclick="sendMessage('Preciso automatizar processos')">⚡ Automação</button>
+                    <button onclick="sendMessage('Quais são os preços?')">💰 Preços</button>
+                    <button onclick="sendMessage('Como funciona o processo?')">❓ Como funciona</button>
+                </div>
+            </div>
+            
+            <div id="chat-input-area">
+                <input type="text" id="chat-input" placeholder="Digite sua mensagem..." onkeypress="if(event.key==='Enter') sendCustomMessage()">
+                <button onclick="sendCustomMessage()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        #chat-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+        }
+
+        #chat-button {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+            border: none;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        #chat-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.5);
+        }
+
+        #chat-icon {
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        #chat-icon svg {
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+
+        #chat-box {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 380px;
+            max-width: calc(100vw - 40px);
+            height: 550px;
+            max-height: calc(100vh - 120px);
+            background: linear-gradient(135deg, rgba(31, 41, 55, 0.98), rgba(17, 24, 39, 0.98));
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            animation: slideUp 0.3s ease-out;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #chat-header {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            padding: 1rem 1.5rem;
+            border-radius: 16px 16px 0 0;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #chat-messages {
+            flex: 1;
+            padding: 1.5rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .bot-message, .user-message {
+            padding: 1rem;
+            border-radius: 12px;
+            max-width: 85%;
+            animation: messageSlide 0.3s ease-out;
+            line-height: 1.5;
+        }
+
+        @keyframes messageSlide {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .bot-message {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(37, 99, 235, 0.2));
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            align-self: flex-start;
+            color: #e5e7eb;
+        }
+
+        .user-message {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.4), rgba(37, 99, 235, 0.4));
+            border: 1px solid rgba(59, 130, 246, 0.5);
+            align-self: flex-end;
+            color: white;
+        }
+
+        .chat-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .chat-options button {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: #e5e7eb;
+            padding: 0.75rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+            text-align: left;
+        }
+
+        .chat-options button:hover {
+            background: rgba(59, 130, 246, 0.2);
+            border-color: #3b82f6;
+            transform: translateY(-2px);
+        }
+
+        #chat-input-area {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid rgba(59, 130, 246, 0.2);
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        #chat-input {
+            flex: 1;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 8px;
+            padding: 0.75rem;
+            color: white;
+            font-size: 1rem;
+        }
+
+        #chat-input:focus {
+            outline: none;
+            border-color: #3b82f6;
+        }
+
+        #chat-input-area button {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            border: none;
+            color: white;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        #chat-input-area button:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            #chat-box {
+                width: calc(100vw - 40px);
+                height: calc(100vh - 120px);
+            }
+
+            #chat-text {
+                display: none;
+            }
+        }
+    </style>
+
+    <script>
+        function toggleChat() {
+            const chatBox = document.getElementById('chat-box');
+            const chatButton = document.getElementById('chat-button');
+            
+            if (chatBox.style.display === 'none') {
+                chatBox.style.display = 'flex';
+                chatButton.style.display = 'none';
+            } else {
+                chatBox.style.display = 'none';
+                chatButton.style.display = 'flex';
+            }
+        }
+
+        function sendMessage(message) {
+            const messagesContainer = document.getElementById('chat-messages');
+            
+            // Adiciona mensagem do usuário
+            const userMsg = document.createElement('div');
+            userMsg.className = 'user-message';
+            userMsg.textContent = message;
+            messagesContainer.appendChild(userMsg);
+            
+            // Remove opções
+            const options = document.querySelector('.chat-options');
+            if (options) options.remove();
+            
+            // Resposta do bot
+            setTimeout(() => {
+                const botMsg = document.createElement('div');
+                botMsg.className = 'bot-message';
+                botMsg.innerHTML = getResponse(message);
+                messagesContainer.appendChild(botMsg);
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }, 500);
+        }
+
+        function sendCustomMessage() {
+            const input = document.getElementById('chat-input');
+            const message = input.value.trim();
+            
+            if (message) {
+                sendMessage(message);
+                input.value = '';
+            }
+        }
+
+        function getResponse(message) {
+            const responses = {
+                'Quero saber sobre criação de sites': 'Ótimo! 🌐 Oferecemos criação de sites profissionais a partir de R$ 1.200.<br><br>Temos 3 planos:<br>• Landing Page<br>• Site Institucional<br>• E-commerce<br><br>Todos responsivos e otimizados! <a href="websites.html" style="color: #3b82f6;">Ver detalhes →</a><br><br><a href="https://wa.me/5567999476082?text=Olá! Quero saber mais sobre criação de sites" target="_blank" style="color: #3b82f6;">📱 Falar no WhatsApp</a>',
+                
+                'Preciso de um software personalizado': 'Excelente escolha! 💻 Desenvolvemos software sob medida a partir de R$ 4.500.<br><br>Especializados em:<br>• Sistemas de Gestão<br>• CRM/ERP<br>• Plataformas Web<br><br><a href="software.html" style="color: #3b82f6;">Ver planos →</a><br><br><a href="https://wa.me/5567999476082?text=Olá! Preciso de um software personalizado" target="_blank" style="color: #3b82f6;">📱 Solicitar orçamento</a>',
+                
+                'Quero desenvolver um app': 'Ótima ideia! 📱 Criamos apps iOS e Android a partir de R$ 8.000.<br><br>Oferecemos:<br>• Apps Nativos<br>• Apps Híbridos<br>• Publicação nas lojas<br><br><a href="apps.html" style="color: #3b82f6;">Ver detalhes →</a><br><br><a href="https://wa.me/5567999476082?text=Olá! Quero desenvolver um app" target="_blank" style="color: #3b82f6;">📱 Falar com especialista</a>',
+                
+                'Preciso de marketing digital': 'Perfeito! 📊 Temos planos de marketing a partir de R$ 1.500/mês.<br><br>Serviços:<br>• SEO e Google Ads<br>• Redes Sociais<br>• E-mail Marketing<br><br><a href="marketing.html" style="color: #3b82f6;">Ver planos →</a><br><br><a href="https://wa.me/5567999476082?text=Olá! Preciso de marketing digital" target="_blank" style="color: #3b82f6;">📱 Solicitar proposta</a>',
+                
+                'Quero soluções com IA': 'Excelente! 🤖 Implementamos IA no seu negócio a partir de R$ 3.500.<br><br>Oferecemos:<br>• Chatbots Inteligentes<br>• Análise Preditiva<br>• Automação com IA<br><br><a href="ia.html" style="color: #3b82f6;">Saiba mais →</a><br><br><a href="https://wa.me/5567999476082?text=Olá! Quero soluções com IA" target="_blank" style="color: #3b82f6;">📱 Agendar demo</a>',
+                
+                'Preciso automatizar processos': 'Ótima decisão! ⚡ Automatizamos processos a partir de R$ 2.000.<br><br>Especializados em:<br>• RPA<br>• Integrações<br>• Workflows<br><br><a href="automacao.html" style="color: #3b82f6;">Ver mais →</a><br><br><a href="https://wa.me/5567999476082?text=Olá! Preciso automatizar processos" target="_blank" style="color: #3b82f6;">📱 Análise gratuita</a>',
+                
+                'Quais são os preços?': '💰 Nossos preços variam conforme o serviço:<br><br>• Sites: R$ 1.200 - R$ 6.500<br>• Software: R$ 4.500 - R$ 25.000<br>• Apps: R$ 8.000 - R$ 35.000<br>• Marketing: R$ 1.500 - R$ 7.000/mês<br>• IA: R$ 3.500 - R$ 25.000<br>• Automação: R$ 2.000 - R$ 20.000<br><br>Todos os valores são sob consulta e personalizados!<br><br><a href="https://wa.me/5567999476082?text=Olá! Quero um orçamento personalizado" target="_blank" style="color: #3b82f6;">📱 Solicitar orçamento</a>',
+                
+                'Como funciona o processo?': '❓ Nosso processo é simples:<br><br>1️⃣ Conversa inicial (grátis)<br>2️⃣ Análise e proposta<br>3️⃣ Desenvolvimento<br>4️⃣ Testes e ajustes<br>5️⃣ Entrega e treinamento<br>6️⃣ Suporte contínuo<br><br><a href="https://wa.me/5567999476082?text=Olá! Quero entender melhor o processo" target="_blank" style="color: #3b82f6;">📱 Agendar conversa</a>'
+            };
+            
+            return responses[message] || `Obrigado pela mensagem! 😊<br><br>Para um atendimento mais personalizado, entre em contato pelo WhatsApp:<br><br><a href="https://wa.me/5567999476082?text=${encodeURIComponent(message)}" target="_blank" style="color: #3b82f6;">📱 Falar no WhatsApp</a>`;
+        }
+    </script>
 </body>
 </html>
