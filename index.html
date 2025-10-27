@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three Birds Technology - Soluções Digitais Inteligentes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #e5e7eb;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #3b82f6;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #3b82f6;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(37, 99, 235, 0.15) 0%, transparent 50%);
+        }
+
+        .grid-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 1200px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: #9ca3af;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease-out 0.2s backwards;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            animation: fadeInUp 1s ease-out 0.4s backwards;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #3b82f6;
+            border: 2px solid #3b82f6;
+        }
+
+        .btn-secondary:hover {
+            background: #3b82f6;
+            color: white;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Services Section */
+        .services {
+            padding: 8rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #9ca3af;
+            font-size: 1.2rem;
+            margin-bottom: 5rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, rgba(31, 41, 55, 0.8), rgba(17, 24, 39, 0.8));
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 16px;
+            padding: 2.5rem;
+            cursor: pointer;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: #3b82f6;
+            box-shadow: 0 20px 60px rgba(59, 130, 246, 0.3);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .service-card p {
+            color: #9ca3af;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-link {
+            color: #3b82f6;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s;
+        }
+
+        .service-link:hover {
+            gap: 1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, rgba(31, 41, 55, 0.5), rgba(17, 24, 39, 0.5));
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact p {
+            color: #9ca3af;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.2rem 2.5rem;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(37, 99, 235, 0.2));
+            border: 2px solid #3b82f6;
+            border-radius: 12px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+
+        .social-btn:hover {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
+        }
+
+        .social-icon {
+            font-size: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #0a0a0a;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        footer p {
+            color: #6b7280;
+        }
+
+        /* Service Detail Pages */
+        .service-detail {
+            display: none;
+            padding: 10rem 2rem 5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-detail.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            transition: gap 0.3s;
+        }
+
+        .back-button:hover {
+            gap: 1rem;
+        }
+
+        .detail-header {
+            margin-bottom: 3rem;
+        }
+
+        .detail-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .detail-content {
+            background: linear-gradient(135deg, rgba(31, 41, 55, 0.6), rgba(17, 24, 39, 0.6));
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 16px;
+            padding: 3rem;
+        }
+
+        .detail-content h2 {
+            color: #3b82f6;
+            font-size: 2rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .detail-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .detail-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .detail-content li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: #d1d5db;
+            line-height: 1.6;
+        }
+
+        .detail-content li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+            font-size: 1.5rem;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(37, 99, 235, 0.1));
+            border: 2px solid #3b82f6;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .cta-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-box p {
+            color: #9ca3af;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .detail-header h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">Three Birds Technology</div>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showHome(); return false;">Início</a></li>
+                <li><a href="#services">Serviços</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Home Page -->
+    <div id="home-page">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-background"></div>
+            <div class="grid-overlay"></div>
+            <div class="hero-content">
+                <h1>Transformando Ideias em Soluções Digitais Inteligentes</h1>
+                <p class="subtitle">Impulsionamos seu negócio com tecnologia de ponta e inteligência artificial</p>
+                <div class="cta-buttons">
+                    <a href="#services" class="btn btn-primary">Nossos Serviços</a>
+                    <a href="#contact" class="btn btn-secondary">Entre em Contato</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services">
+            <h2 class="section-title">Nossos Serviços</h2>
+            <p class="section-subtitle">Soluções tecnológicas completas para alavancar seu negócio</p>
+            
+            <div class="services-grid">
+                <div class="service-card" onclick="showService('websites')">
+                    <div class="service-icon">🌐</div>
+                    <h3>Criação de Sites</h3>
+                    <p>Sites profissionais, responsivos e otimizados para conversão. Do institucional ao e-commerce, desenvolvemos a presença digital perfeita para sua marca.</p>
+                    <span class="service-link">Saiba mais →</span>
+                </div>
+
+                <div class="service-card" onclick="showService('software')">
+                    <div class="service-icon">💻</div>
+                    <h3>Desenvolvimento de Software</h3>
+                    <p>Sistemas personalizados que automatizam processos e aumentam a eficiência do seu negócio. Soluções escaláveis e sob medida.</p>
+                    <span class="service-link">Saiba mais →</span>
+                </div>
+
+                <div class="service-card" onclick="showService('apps')">
+                    <div class="service-icon">📱</div>
+                    <h3>Aplicativos Mobile</h3>
+                    <p>Apps nativos e híbridos para iOS e Android. Experiências mobile que conectam sua marca aos clientes de forma inovadora.</p>
+                    <span class="service-link">Saiba mais →</span>
+                </div>
+
+                <div class="service-card" onclick="showService('marketing')">
+                    <div class="service-icon">📊</div>
+                    <h3>Marketing Digital</h3>
+                    <p>Estratégias completas de marketing digital com foco em resultados. SEO, mídia paga, redes sociais e análise de dados.</p>
+                    <span class="service-link">Saiba mais →</span>
+                </div>
+
+                <div class="service-card" onclick="showService('ai')">
+                    <div class="service-icon">🤖</div>
+                    <h3>Soluções com IA</h3>
+                    <p>Integração de inteligência artificial para automação, análise preditiva, chatbots e otimização de processos empresariais.</p>
+                    <span class="service-link">Saiba mais →</span>
+                </div>
+
+                <div class="service-card" onclick="showService('automation')">
+                    <div class="service-icon">⚡</div>
+                    <h3>Automação de Processos</h3>
+                    <p>Automatize tarefas repetitivas e ganhe eficiência operacional. RPA, integração de sistemas e workflows inteligentes.</p>
+                    <span class="service-link">Saiba mais →</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="contact-content">
+                <h2>Vamos Construir Algo Incrível Juntos?</h2>
+                <p>Entre em contato conosco e descubra como podemos impulsionar seu negócio com tecnologia de ponta</p>
+                
+                <div class="social-buttons">
+                    <a href="https://wa.me/5511999999999" target="_blank" class="social-btn">
+                        <span class="social-icon">📱</span>
+                        WhatsApp
+                    </a>
+                    <a href="https://instagram.com/threebirdstechnology" target="_blank" class="social-btn">
+                        <span class="social-icon">📸</span>
+                        Instagram
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Service Detail Pages -->
+    <div id="websites-detail" class="service-detail">
+        <a href="#" class="back-button" onclick="showHome(); return false;">← Voltar</a>
+        <div class="detail-header">
+            <h1>Criação de Sites Profissionais</h1>
+            <p style="color: #9ca3af; font-size: 1.2rem;">Presença digital que converte visitantes em clientes</p>
+        </div>
+        <div class="detail-content">
+            <h2>O que oferecemos</h2>
+            <ul>
+                <li>Sites institucionais modernos e profissionais</li>
+                <li>E-commerce completo com integração de pagamento</li>
+                <li>Landing pages otimizadas para conversão</li>
+                <li>Portfólios e sites pessoais marcantes</li>
+                <li>Design responsivo para todos os dispositivos</li>
+                <li>SEO otimizado desde o início</li>
+            </ul>
+
+            <h2>Tecnologias utilizadas</h2>
+            <ul>
+                <li>HTML5, CSS3 e JavaScript moderno</li>
+                <li>React, Vue.js e frameworks avançados</li>
+                <li>WordPress e CMS personalizados</li>
+                <li>Integração com APIs e serviços externos</li>
+                <li>Performance e velocidade de carregamento otimizadas</li>
+            </ul>
+
+            <h2>Benefícios para seu negócio</h2>
+            <ul>
+                <li>Aumento da credibilidade e profissionalismo</li>
+                <li>Melhor posicionamento nos motores de busca</li>
+                <li>Experiência do usuário aprimorada</li>
+                <li>Maior taxa de conversão de visitantes</li>
+                <li>Presença digital 24/7 para seus clientes</li>
+            </ul>
+
+            <div class="cta-box">
+                <h3>Pronto para ter um site de alto nível?</h3>
+                <p>Entre em contato e receba uma proposta personalizada</p>
+                <a href="#contact" class="btn btn-primary" onclick="showHome(); setTimeout(() => document.getElementById('contact').scrollIntoView({behavior: 'smooth'}), 100); return false;">Solicitar Orçamento</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="software-detail" class="service-detail">
+        <a href="#" class="back-button" onclick="showHome(); return false;">← Voltar</a>
+        <div class="detail-header">
+            <h1>Desenvolvimento de Software Personalizado</h1>
+            <p style="color: #9ca3af; font-size: 1.2rem;">Sistemas sob medida que transformam seu negócio</p>
+        </div>
+        <div class="detail-content">
+            <h2>Soluções que desenvolvemos</h2>
+            <ul>
+                <li>Sistemas de gestão empresarial (ERP)</li>
+                <li>CRM customizado para vendas e relacionamento</li>
+                <li>Sistemas de automação de processos</li>
+                <li>Plataformas web complexas e escaláveis</li>
+                <li>Dashboards e painéis de controle</li>
+                <li>Integrações entre sistemas existentes</li>
+            </ul>
+
+            <h2>Nossa metodologia</h2>
+            <ul>
+                <li>Análise detalhada das necessidades do negócio</li>
+                <li>Desenvolvimento ágil com entregas incrementais</li>
+                <li>Testes rigorosos de qualidade e segurança</li>
+                <li>Documentação completa do sistema</li>
+                <li>Treinamento da equipe e suporte contínuo</li>
+                <li>Manutenção e evolução constante</li>
+            </ul>
+
+            <h2>Diferenciais</h2>
+            <ul>
+                <li>Código limpo, documentado e escalável</li>
+                <li>Arquitetura robusta e segura</li>
+                <li>Interface intuitiva e fácil de usar</li>
+                <li>Performance otimizada para grandes volumes</li>
+                <li>Integração com IA para recursos avançados</li>
+            </ul>
+
+            <div class="cta-box">
+                <h3>Transforme sua ideia em realidade</h3>
+                <p>Agende uma conversa e vamos planejar juntos seu software ideal</p>
+                <a href="#contact" class="btn btn-primary" onclick="showHome(); setTimeout(() => document.getElementById('contact').scrollIntoView({behavior: 'smooth'}), 100); return false;">Falar com Especialista</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="apps-detail" class="service-detail">
+        <a href="#" class="back-button" onclick="showHome(); return false;">← Voltar</a>
+        <div class="detail-header">
+            <h1>Desenvolvimento de Aplicativos Mobile</h1>
+            <p style="color: #9ca3af; font-size: 1.2rem;">Apps que conectam sua marca aos clientes</p>
+        </div>
+        <div class="detail-content">
+            <h2>Tipos de aplicativos</h2>
+            <ul>
+                <li>Apps nativos para iOS e Android</li>
+                <li>Aplicativos híbridos multiplataforma</li>
+                <li>Progressive Web Apps (PWA)</li>
+                <li>Apps corporativos e de produtividade</li>
+                <li>E-commerce mobile e marketplaces</li>
+                <li>Apps de serviços e delivery</li>
+            </ul>
+
+            <h2>Recursos e funcionalidades</h2>
+            <ul>
+                <li>Design UX/UI nativo e intuitivo</li>
+                <li>Integração com câmera, GPS e sensores</li>
+                <li>Notificações push personalizadas</li>
+                <li>Pagamentos in-app seguros</li>
+                <li>Sistema de login e autenticação</li>
+                <li>Sincronização em tempo real</li>
+                <li>Modo offline com sincronização</li>
+            </ul>
+
+            <h2>Processo de desenvolvimento</h2>
+            <ul>
+                <li>Prototipagem e validação de conceito</li>
+                <li>Design de interfaces modernas</li>
+                <li>Desenvolvimento nativo ou híbrido</li>
+                <li>Testes em múltiplos dispositivos</li>
+                <li>Publicação nas lojas oficiais</li>
+                <li>Suporte pós-lançamento</li>
+            </ul>
+
+            <div class="cta-box">
+                <h3>Seu app nas mãos dos clientes</h3>
+                <p>Vamos criar o aplicativo perfeito para seu negócio</p>
+                <a href="#contact" class="btn btn-primary" onclick="showHome(); setTimeout(() => document.getElementById('contact').scrollIntoView({behavior: 'smooth'}), 100); return false;">Iniciar Projeto</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="marketing-detail" class="service-detail">
+        <a href="#" class="back-button" onclick="showHome(); return false;">← Voltar</a>
+        <div class="detail-header">
+            <h1>Marketing Digital Estratégico</h1>
+            <p style="color: #9ca3af; font-size: 1.2rem;">Resultados reais através de estratégias data-driven</p>
+        </div>
+        <div class="detail-content">
+            <h2>Serviços de marketing</h2>
+            <ul>
+                <li>SEO e otimização para motores de busca</li>
+                <li>Google Ads e mídia paga (PPC)</li>
+                <li>Gestão de redes sociais</li>
+                <li>Marketing de conteúdo</li>
+                <li>E-mail marketing e automação</li>
+                <li>Análise de dados e métricas</li>
+                <li>Estratégia de inbound marketing</li>
+            </ul>
+
+            <h2>Nossa abordagem</h2>
+            <ul>
+                <li>Análise de mercado e concorrência</li>
+                <li>Definição de personas e público-alvo</li>
+                <li>Criação de estratégia personalizada</li>
+                <li>Produção de conteúdo relevante</li>
+                <li>Otimização contínua baseada em dados</li>
+                <li>Relatórios transparentes de performance</li>
+            </ul>
+
+            <h2>Resultados que entregamos</h2>
+            <ul>
+                <li>Aumento do tráfego qualificado</li>
+                <li>Melhoria nas taxas de conversão</li>
+                <li>Redução do custo de aquisição (CAC)</li>
+                <li>Fortalecimento da marca digital</li>
+                <li>ROI mensurável e crescente</li>
+                <li>Engajamento e fidelização de clientes</li>
+            </ul>
+
+            <div class="cta-box">
+                <h3>Pronto para dominar o digital?</h3>
+                <p>Vamos criar uma estratégia vencedora para seu negócio</p>
+                <a href="#contact" class="btn btn-primary" onclick="showHome(); setTimeout(() => document.getElementById('contact').scrollIntoView({behavior: 'smooth'}), 100); return false;">Quero Crescer</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="ai-detail" class="service-detail">
+        <a href="#" class="back-button" onclick="showHome(); return false;">← Voltar</a>
+        <div class="detail-header">
+            <h1>Soluções com Inteligência Artificial</h1>
+            <p style="color: #9ca3af; font-size: 1.2rem;">O futuro da tecnologia aplicado ao seu negócio</p>
+        </div>
+        <div class="detail-content">
+            <h2>Aplicações de IA</h2>
+            <ul>
+                <li>Chatbots inteligentes e assistentes virtuais</li>
+                <li>Análise preditiva e forecasting</li>
+                <li>Reconhecimento de imagens e visão computacional</li>
+                <li>Processamento de linguagem natural (NLP)</li>
+                <li>Sistemas de recomendação person
