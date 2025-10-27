@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Digital Estratégico | Three Birds Technology</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+
+        .back-home {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.8rem 1.5rem;
+            border: 2px solid #3b82f6;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .back-home:hover {
+            background: #3b82f6;
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 10rem 2rem 5rem;
+            text-align: center;
+            background: 
+                radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #9ca3af;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Content Section */
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 5rem;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #3b82f6;
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #d1d5db;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, rgba(31, 41, 55, 0.6), rgba(17, 24, 39, 0.6));
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: #3b82f6;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .feature-card p {
+            font-size: 1rem;
+            color: #9ca3af;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background: linear-gradient(135deg, rgba(31, 41, 55, 0.4), rgba(17, 24, 39, 0.4));
+            padding: 5rem 2rem;
+            margin: 5rem 0;
+        }
+
+        .pricing-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-subtitle {
+            text-align: center;
+            color: #9ca3af;
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .price-card {
+            background: linear-gradient(135deg, rgba(31, 41, 55, 0.8), rgba(17, 24, 39, 0.8));
+            border: 2px solid rgba(59, 130, 246, 0.3);
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .price-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .price-card:hover {
+            transform: translateY(-10px);
+            border-color: #3b82f6;
+            box-shadow: 0 20px 60px rgba(59, 130, 246, 0.3);
+        }
+
+        .price-card:hover::before {
+            opacity: 1;
+        }
+
+        .price-card.featured {
+            border-color: #3b82f6;
+            transform: scale(1.05);
+        }
+
+        .popular-badge {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .price-card h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #3b82f6;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-period {
+            color: #9ca3af;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .features-list {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .features-list li {
+            padding: 0.8rem 0;
+            color: #d1d5db;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .features-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .delivery-time {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            color: #3b82f6;
+            font-weight: 600;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(37, 99, 235, 0.1));
+            border: 2px solid #3b82f6;
+            border-radius: 16px;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin: 5rem 0;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            color: #9ca3af;
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #0a0a0a;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        footer p {
+            color: #6b7280;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .pricing h2 {
+                font-size: 2rem;
+            }
+
+            .price-card.featured {
+                transform: scale(1);
+            }
+
+            .price {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Three Birds Technology</a>
+            <a href="index.html" class="back-home">← Voltar para Home</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Marketing Digital Estratégico</h1>
+        <p>Transforme visitantes em clientes e dados em crescimento com estratégias comprovadas</p>
+    </section>
+
+    <!-- Content -->
+    <div class="content">
+        <!-- O que oferecemos -->
+        <section class="section">
+            <h2>Serviços de marketing digital</h2>
+            <p>Desenvolvemos estratégias completas de marketing digital com foco em ROI. Cada ação é mensurada, otimizada e alinhada aos objetivos do seu negócio.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>SEO e Otimização</h3>
+                    <p>Posicione seu site no topo do Google e atraia tráfego orgânico qualificado constantemente.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Google Ads e Mídia Paga</h3>
+                    <p>Campanhas otimizadas que geram resultados desde o primeiro dia com ROI positivo.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Gestão de Redes Sociais</h3>
+                    <p>Conteúdo estratégico que engaja, constrói comunidade e converte seguidores em clientes.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">✍️</div>
+                    <h3>Marketing de Conteúdo</h3>
+                    <p>Artigos, posts e materiais que educam, atraem e convertem seu público-alvo.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📧</div>
+                    <h3>E-mail Marketing</h3>
+                    <p>Automações inteligentes que nutrem leads e aumentam as vendas no piloto automático.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Analytics e Relatórios</h3>
+                    <p>Dashboards em tempo real com métricas que realmente importam para o seu negócio.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nossa abordagem -->
+        <section class="section">
+            <h2>Nossa metodologia data-driven</h2>
+            <p><strong>1. Diagnóstico Completo:</strong> Auditoria do seu digital: site, redes sociais, concorrência e oportunidades.</p>
+            <p><strong>2. Definição de Personas:</strong> Identificamos quem é seu cliente ideal e onde ele está online.</p>
+            <p><strong>3. Estratégia Personalizada:</strong> Criamos um plano único baseado nos seus objetivos e orçamento.</p>
+            <p><strong>4. Execução e Otimização:</strong> Implementamos as ações e ajustamos constantemente baseado em dados.</p>
+            <p><strong>5. Análise e Relatórios:</strong> Relatórios transparentes mostrando exatamente o que está funcionando.</p>
+            <p><strong>6. Escalabilidade:</strong> Aumentamos o investimento nas estratégias que geram mais resultado.</p>
+        </section>
+
+        <!-- Benefícios -->
+        <section class="section">
+            <h2>Resultados que você pode esperar</h2>
+            <p><strong>✓ Aumento do Tráfego Qualificado:</strong> Mais visitantes que realmente têm interesse no que você oferece.</p>
+            <p><strong>✓ Melhoria nas Taxas de Conversão:</strong> Otimizações que transformam mais visitantes em clientes.</p>
+            <p><strong>✓ Redução do CAC:</strong> Diminuição do custo para adquirir cada cliente através de otimizações constantes.</p>
+            <p><strong>✓ Fortalecimento da Marca:</strong> Presença digital consistente que gera autoridade e confiança.</p>
+            <p><strong>✓ ROI Mensurável:</strong> Cada real investido é rastreado e justificado com métricas claras.</p>
+            <p><strong>✓ Vantagem Competitiva:</strong> Estratégias que colocam você à frente da concorrência.</p>
+        </section>
+    </div>
+
+    <!-- Pricing Section -->
+    <section class="pricing">
+        <div class="pricing-container">
+            <h2>Planos de marketing digital</h2>
+            <p class="pricing-subtitle">Investimento mensal com resultados contínuos</p>
+            
+            <div class="pricing-grid">
+                <!-- Plano Essencial -->
+                <div class="price-card">
+                    <h3>Plano Essencial</h3>
+                    <div class="price">A partir de R$ 1.500</div>
+                    <p class="price-period">Por mês</p>
+                    
+                    <ul class="features-list">
+                        <li>Gestão de 2 redes sociais</li>
+                        <li>12 posts por mês</li>
+                        <li>Stories semanais</li>
+                        <li>SEO básico do site</li>
+                        <li>Relatório mensal de métricas</li>
+                        <li>Suporte via WhatsApp</li>
+                    </ul>
+                    
+                    <div class="delivery-time">📈 Ideal para pequenos negócios</div>
+                    
+                    <a href="https://wa.me/5567999476082?text=Olá! Tenho interesse no Plano Essencial de Marketing Digital. Gostaria de receber um orçamento personalizado." target="_blank" class="btn btn-primary">Solicitar Orçamento Personalizado</a>
+                </div>
+
+                <!-- Plano Profissional -->
+                <div class="price-card featured">
+                    <span class="popular-badge">⭐ MAIS POPULAR</span>
+                    <h3>Plano Profissional</h3>
+                    <div class="price">A partir de R$ 3.500</div>
+                    <p class="price-period">Por mês</p>
+                    
+                    <ul class="features-list">
+                        <li>Gestão de 3-4 redes sociais</li>
+                        <li>20 posts por mês</li>
+                        <li>Stories diários</li>
+                        <li>Google Ads ou Facebook Ads</li>
+                        <li>SEO completo e blog (4 artigos/mês)</li>
+                        <li>E-mail marketing (2 campanhas/mês)</li>
+                        <li>Criação de criativos e vídeos</li>
+                        <li>Dashboard em tempo real</li>
+                        <li>Reuniões mensais de estratégia</li>
+                    </ul>
+                    
+                    <div class="delivery-time">📈 Ideal para crescimento acelerado</div>
+                    
+                    <a href="https://wa.me/5567999476082?text=Olá! Tenho interesse no Plano Profissional de Marketing Digital. Gostaria de receber um orçamento personalizado." target="_blank" class="btn btn-primary">Solicitar Orçamento Personalizado</a>
+                </div>
+
+                <!-- Plano Empresarial -->
+                <div class="price-card">
+                    <h3>Plano Empresarial</h3>
+                    <div class="price">A partir de R$ 7.000</div>
+                    <p class="price-period">Por mês</p>
+                    
+                    <ul class="features-list">
+                        <li>Gestão de todas as redes sociais</li>
+                        <li>Conteúdo ilimitado</li>
+                        <li>Múltiplas campanhas de Ads</li>
+                        <li>SEO avançado e autoridade</li>
+                        <li>Blog com 8+ artigos/mês</li>
+                        <li>E-mail marketing com automação</li>
+                        <li>Inbound marketing completo</li>
+                        <li>Influenciadores e parcerias</li>
+                        <li>CRO (otimização de conversão)</li>
+                        <li>Equipe dedicada</li>
+                        <li>Relatórios semanais</li>
+                        <li>Consultoria estratégica</li>
+                    </ul>
+                    
+                    <div class="delivery-time">📈 Ideal para dominar o mercado</div>
+                    
+                    <a href="https://wa.me/5567999476082?text=Olá! Tenho interesse no Plano Empresarial de Marketing Digital. Gostaria de receber um orçamento personalizado." target="_blank" class="btn btn-primary">Solicitar Orçamento Personalizado</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <div class="content">
+        <section class="cta-section">
+            <h2>Pronto para crescer no digital?</h2>
+            <p>Agende uma consultoria gratuita e descubra como aumentar seus resultados online!</p>
+            <a href="https://wa.me/5567999476082?text=Olá! Quero agendar uma consultoria gratuita sobre marketing digital!" target="_blank" class="btn btn-primary">Agendar Consultoria Gratuita</a>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Three Birds Technology. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
