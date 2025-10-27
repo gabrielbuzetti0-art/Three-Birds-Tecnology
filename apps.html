@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desenvolvimento de Apps Mobile | Three Birds Technology</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+
+        .back-home {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.8rem 1.5rem;
+            border: 2px solid #3b82f6;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .back-home:hover {
+            background: #3b82f6;
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 10rem 2rem 5rem;
+            text-align: center;
+            background: 
+                radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #9ca3af;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Content Section */
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 5rem;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #3b82f6;
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #d1d5db;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, rgba(31, 41, 55, 0.6), rgba(17, 24, 39, 0.6));
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: #3b82f6;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .feature-card p {
+            font-size: 1rem;
+            color: #9ca3af;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background: linear-gradient(135deg, rgba(31, 41, 55, 0.4), rgba(17, 24, 39, 0.4));
+            padding: 5rem 2rem;
+            margin: 5rem 0;
+        }
+
+        .pricing-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-subtitle {
+            text-align: center;
+            color: #9ca3af;
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .price-card {
+            background: linear-gradient(135deg, rgba(31, 41, 55, 0.8), rgba(17, 24, 39, 0.8));
+            border: 2px solid rgba(59, 130, 246, 0.3);
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .price-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .price-card:hover {
+            transform: translateY(-10px);
+            border-color: #3b82f6;
+            box-shadow: 0 20px 60px rgba(59, 130, 246, 0.3);
+        }
+
+        .price-card:hover::before {
+            opacity: 1;
+        }
+
+        .price-card.featured {
+            border-color: #3b82f6;
+            transform: scale(1.05);
+        }
+
+        .popular-badge {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .price-card h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #3b82f6;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-period {
+            color: #9ca3af;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .features-list {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .features-list li {
+            padding: 0.8rem 0;
+            color: #d1d5db;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .features-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .delivery-time {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            color: #3b82f6;
+            font-weight: 600;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(37, 99, 235, 0.1));
+            border: 2px solid #3b82f6;
+            border-radius: 16px;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin: 5rem 0;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            color: #9ca3af;
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #0a0a0a;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        footer p {
+            color: #6b7280;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .pricing h2 {
+                font-size: 2rem;
+            }
+
+            .price-card.featured {
+                transform: scale(1);
+            }
+
+            .price {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Three Birds Technology</a>
+            <a href="index.html" class="back-home">← Voltar para Home</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Desenvolvimento de Aplicativos Mobile</h1>
+        <p>Apps que conectam sua marca aos clientes onde eles estão: na palma da mão</p>
+    </section>
+
+    <!-- Content -->
+    <div class="content">
+        <!-- O que oferecemos -->
+        <section class="section">
+            <h2>Tipos de aplicativos que desenvolvemos</h2>
+            <p>Criamos aplicativos mobile nativos e híbridos para iOS e Android, com foco em experiência do usuário, performance e funcionalidades que realmente fazem diferença para o seu negócio.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🍎</div>
+                    <h3>Apps Nativos iOS</h3>
+                    <p>Desenvolvimento nativo para iPhone e iPad com Swift, aproveitando 100% dos recursos da Apple.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>Apps Nativos Android</h3>
+                    <p>Apps nativos em Kotlin/Java para todos os dispositivos Android com máxima performance.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Apps Híbridos</h3>
+                    <p>React Native ou Flutter: um código para iOS e Android, reduzindo custos e tempo.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🛍️</div>
+                    <h3>E-commerce Mobile</h3>
+                    <p>Lojas virtuais mobile com carrinho, pagamento e gestão de pedidos integrada.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💼</div>
+                    <h3>Apps Corporativos</h3>
+                    <p>Soluções internas para empresas: gestão de equipe, vendas, produtividade.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🚗</div>
+                    <h3>Apps de Serviços</h3>
+                    <p>Delivery, transporte, agendamentos e qualquer serviço sob demanda.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recursos -->
+        <section class="section">
+            <h2>Recursos e funcionalidades</h2>
+            <p><strong>✓ Design UX/UI Nativo:</strong> Interface intuitiva que segue as guidelines de cada plataforma.</p>
+            <p><strong>✓ Push Notifications:</strong> Notificações personalizadas para engajar e trazer usuários de volta.</p>
+            <p><strong>✓ Geolocalização:</strong> Integração com GPS para funcionalidades baseadas em localização.</p>
+            <p><strong>✓ Câmera e Galeria:</strong> Captura de fotos, vídeos e upload de arquivos.</p>
+            <p><strong>✓ Pagamentos In-App:</strong> Integração com Stripe, Mercado Pago, PagSeguro e outros.</p>
+            <p><strong>✓ Login Social:</strong> Autenticação via Google, Facebook, Apple ID.</p>
+            <p><strong>✓ Modo Offline:</strong> Funcionalidades que continuam trabalhando sem internet.</p>
+            <p><strong>✓ Sincronização em Tempo Real:</strong> Dados sempre atualizados entre dispositivos.</p>
+        </section>
+
+        <!-- Processo -->
+        <section class="section">
+            <h2>Nosso processo de desenvolvimento</h2>
+            <p><strong>1. Briefing e Pesquisa:</strong> Entendemos seu público, concorrência e objetivos do app.</p>
+            <p><strong>2. Wireframes e Protótipos:</strong> Criamos protótipos navegáveis para validar a experiência.</p>
+            <p><strong>3. Design UI/UX:</strong> Interface visual atraente seguindo as melhores práticas de cada plataforma.</p>
+            <p><strong>4. Desenvolvimento:</strong> Código limpo, documentado e seguindo padrões de qualidade.</p>
+            <p><strong>5. Testes Rigorosos:</strong> Testamos em múltiplos dispositivos e cenários reais de uso.</p>
+            <p><strong>6. Publicação nas Lojas:</strong> Cuidamos de todo o processo de submissão na App Store e Google Play.</p>
+            <p><strong>7. Acompanhamento:</strong> Monitoramos métricas, crashes e feedback dos usuários.</p>
+        </section>
+    </div>
+
+    <!-- Pricing Section -->
+    <section class="pricing">
+        <div class="pricing-container">
+            <h2>Planos de desenvolvimento</h2>
+            <p class="pricing-subtitle">Apps que cabem no seu bolso e crescem com seu negócio</p>
+            
+            <div class="pricing-grid">
+                <!-- App Simples -->
+                <div class="price-card">
+                    <h3>App Simples</h3>
+                    <div class="price">A partir de R$ 8.000</div>
+                    <p class="price-period">Valor sob consulta</p>
+                    
+                    <ul class="features-list">
+                        <li>1 plataforma (iOS ou Android)</li>
+                        <li>Até 5 telas</li>
+                        <li>Design personalizado</li>
+                        <li>Login e cadastro</li>
+                        <li>Integração com API</li>
+                        <li>Push notifications básicas</li>
+                        <li>Publicação na loja</li>
+                        <li>2 meses de suporte</li>
+                    </ul>
+                    
+                    <div class="delivery-time">⏱️ Entrega em 30 dias úteis</div>
+                    
+                    <a href="https://wa.me/5567999476082?text=Olá! Tenho interesse no plano App Simples. Gostaria de receber um orçamento personalizado." target="_blank" class="btn btn-primary">Solicitar Orçamento Personalizado</a>
+                </div>
+
+                <!-- App Completo -->
+                <div class="price-card featured">
+                    <span class="popular-badge">⭐ MAIS POPULAR</span>
+                    <h3>App Completo</h3>
+                    <div class="price">A partir de R$ 18.000</div>
+                    <p class="price-period">Valor sob consulta</p>
+                    
+                    <ul class="features-list">
+                        <li>iOS + Android (código compartilhado)</li>
+                        <li>Até 15 telas</li>
+                        <li>Design premium e animações</li>
+                        <li>Sistema de login social</li>
+                        <li>Geolocalização e mapas</li>
+                        <li>Câmera e upload de fotos</li>
+                        <li>Push notifications avançadas</li>
+                        <li>Pagamentos integrados</li>
+                        <li>Chat em tempo real</li>
+                        <li>Backend incluso</li>
+                        <li>Publicação em ambas lojas</li>
+                        <li>6 meses de suporte</li>
+                    </ul>
+                    
+                    <div class="delivery-time">⏱️ Entrega em 60 dias úteis</div>
+                    
+                    <a href="https://wa.me/5567999476082?text=Olá! Tenho interesse no plano App Completo. Gostaria de receber um orçamento personalizado." target="_blank" class="btn btn-primary">Solicitar Orçamento Personalizado</a>
+                </div>
+
+                <!-- App Empresarial -->
+                <div class="price-card">
+                    <h3>App Empresarial</h3>
+                    <div class="price">A partir de R$ 35.000</div>
+                    <p class="price-period">Valor sob consulta</p>
+                    
+                    <ul class="features-list">
+                        <li>Apps nativos iOS + Android</li>
+                        <li>Telas ilimitadas</li>
+                        <li>Design e UX sob medida</li>
+                        <li>Todas as funcionalidades premium</li>
+                        <li>Integração com sistemas existentes</li>
+                        <li>IA e machine learning</li>
+                        <li>Realidade aumentada (AR)</li>
+                        <li>Modo offline robusto</li>
+                        <li>Analytics avançado</li>
+                        <li>Painel admin web completo</li>
+                        <li>Backend escalável em cloud</li>
+                        <li>Testes automatizados</li>
+                        <li>Publicação e ASO</li>
+                        <li>12 meses de suporte premium</li>
+                    </ul>
+                    
+                    <div class="delivery-time">⏱️ Entrega em 90 dias úteis</div>
+                    
+                    <a href="https://wa.me/5567999476082?text=Olá! Tenho interesse no plano App Empresarial. Gostaria de receber um orçamento personalizado." target="_blank" class="btn btn-primary">Solicitar Orçamento Personalizado</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <div class="content">
+        <section class="cta-section">
+            <h2>Seu app nas lojas em até 90 dias!</h2>
+            <p>Agende uma conversa e vamos transformar sua ideia em um aplicativo de sucesso!</p>
+            <a href="https://wa.me/5567999476082?text=Olá! Quero desenvolver um aplicativo mobile. Vamos conversar?" target="_blank" class="btn btn-primary">Falar com Especialista</a>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Three Birds Technology. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
