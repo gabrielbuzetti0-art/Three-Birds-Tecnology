@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automação de Processos | Three Birds Technology</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+
+        .back-home {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.8rem 1.5rem;
+            border: 2px solid #3b82f6;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .back-home:hover {
+            background: #3b82f6;
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 10rem 2rem 5rem;
+            text-align: center;
+            background: 
+                radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #9ca3af;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Content Section */
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 5rem;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #3b82f6;
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #d1d5db;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, rgba(31, 41, 55, 0.6), rgba(17, 24, 39, 0.6));
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: #3b82f6;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .feature-card p {
+            font-size: 1rem;
+            color: #9ca3af;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background: linear-gradient(135deg, rgba(31, 41, 55, 0.4), rgba(17, 24, 39, 0.4));
+            padding: 5rem 2rem;
+            margin: 5rem 0;
+        }
+
+        .pricing-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-subtitle {
+            text-align: center;
+            color: #9ca3af;
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .price-card {
+            background: linear-gradient(135deg, rgba(31, 41, 55, 0.8), rgba(17, 24, 39, 0.8));
+            border: 2px solid rgba(59, 130, 246, 0.3);
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .price-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .price-card:hover {
+            transform: translateY(-10px);
+            border-color: #3b82f6;
+            box-shadow: 0 20px 60px rgba(59, 130, 246, 0.3);
+        }
+
+        .price-card:hover::before {
+            opacity: 1;
+        }
+
+        .price-card.featured {
+            border-color: #3b82f6;
+            transform: scale(1.05);
+        }
+
+        .popular-badge {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .price-card h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #3b82f6;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-period {
+            color: #9ca3af;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .features-list {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .features-list li {
+            padding: 0.8rem 0;
+            color: #d1d5db;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .features-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .delivery-time {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            color: #3b82f6;
+            font-weight: 600;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(37, 99, 235, 0.1));
+            border: 2px solid #3b82f6;
+            border-radius: 16px;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin: 5rem 0;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            color: #9ca3af;
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #0a0a0a;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        footer p {
+            color: #6b7280;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .pricing h2 {
+                font-size: 2rem;
+            }
+
+            .price-card.featured {
+                transform: scale(1);
+            }
+
+            .price {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Three Birds Technology</a>
+            <a href="index.html" class="back-home">← Voltar para Home</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Automação de Processos</h1>
+        <p>Elimine tarefas repetitivas e ganhe eficiência operacional com workflows inteligentes</p>
+    </section>
+
+    <!-- Content -->
+    <div class="content">
+        <!-- O que oferecemos -->
+        <section class="section">
+            <h2>O que automatizamos</h2>
+            <p>Identificamos processos manuais e repetitivos no seu negócio e criamos automações que economizam tempo, reduzem erros e liberam sua equipe para focar no que realmente importa: crescimento e estratégia.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>RPA - Robotic Process Automation</h3>
+                    <p>Robôs que executam tarefas repetitivas como humanos: preenchimento de formulários, extração de dados, etc.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔗</div>
+                    <h3>Integração de Sistemas</h3>
+                    <p>Conecte diferentes softwares e faça dados fluírem automaticamente entre eles.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📧</div>
+                    <h3>Automação de E-mails</h3>
+                    <p>Envio automático, respostas programadas, notificações e workflows de comunicação.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Relatórios Automáticos</h3>
+                    <p>Geração e envio automático de relatórios consolidados de múltiplas fontes.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💼</div>
+                    <h3>Workflows Empresariais</h3>
+                    <p>Aprovações, processos de RH, vendas e operações completamente automatizados.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🗂️</div>
+                    <h3>Gestão Documental</h3>
+                    <p>Organização, classificação e arquivamento automático de documentos digitais.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Como funciona -->
+        <section class="section">
+            <h2>Nosso processo de automação</h2>
+            <p><strong>1. Mapeamento de Processos:</strong> Analisamos e documentamos todos os processos atuais da empresa.</p>
+            <p><strong>2. Identificação de Oportunidades:</strong> Detectamos onde a automação trará maior impacto e ROI.</p>
+            <p><strong>3. Priorização:</strong> Definimos quais processos automatizar primeiro baseado em ganhos vs esforço.</p>
+            <p><strong>4. Desenvolvimento:</strong> Criamos scripts, integrações e workflows personalizados.</p>
+            <p><strong>5. Testes:</strong> Validamos em ambiente controlado antes de implementar em produção.</p>
+            <p><strong>6. Treinamento:</strong> Capacitamos a equipe para operar e monitorar as automações.</p>
+            <p><strong>7. Monitoramento:</strong> Acompanhamos performance e ajustamos conforme necessário.</p>
+        </section>
+
+        <!-- Benefícios -->
+        <section class="section">
+            <h2>Impactos da automação no seu negócio</h2>
+            <p><strong>✓ Economia de Tempo:</strong> Reduza em até 80% o tempo gasto em tarefas operacionais repetitivas.</p>
+            <p><strong>✓ Redução de Erros:</strong> Elimine falhas humanas em processos críticos e ganhe precisão.</p>
+            <p><strong>✓ Aumento de Produtividade:</strong> Equipe focada em atividades estratégicas de alto valor.</p>
+            <p><strong>✓ Economia de Custos:</strong> ROI típico de 300-500% em 12 meses após implementação.</p>
+            <p><strong>✓ Escalabilidade:</strong> Processe 10x mais volume sem aumentar headcount.</p>
+            <p><strong>✓ Satisfação da Equipe:</strong> Colaboradores livres de tarefas chatas e repetitivas.</p>
+            <p><strong>✓ Compliance:</strong> Processos padronizados e auditáveis automaticamente.</p>
+        </section>
+
+        <!-- Exemplos -->
+        <section class="section">
+            <h2>Exemplos de automações</h2>
+            <p><strong>Financeiro:</strong> Conciliação bancária automática, envio de boletos, cobrança recorrente.</p>
+            <p><strong>Vendas:</strong> Qualificação de leads, follow-up automático, geração de propostas.</p>
+            <p><strong>RH:</strong> Onboarding de funcionários, coleta de documentos, controle de ponto.</p>
+            <p><strong>Atendimento:</strong> Triagem de tickets, respostas automáticas, escalação inteligente.</p>
+            <p><strong>Marketing:</strong> Publicação em redes sociais, nutrição de leads, relatórios de campanhas.</p>
+            <p><strong>Operações:</strong> Gestão de estoque, emissão de notas fiscais, rastreamento de entregas.</p>
+        </section>
+    </div>
+
+    <!-- Pricing Section -->
+    <section class="pricing">
+        <div class="pricing-container">
+            <h2>Planos de automação</h2>
+            <p class="pricing-subtitle">Investimento que se paga com o tempo economizado</p>
+            
+            <div class="pricing-grid">
+                <!-- Automação Simples -->
+                <div class="price-card">
+                    <h3>Automação Simples</h3>
+                    <div class="price">A partir de R$ 2.000</div>
+                    <p class="price-period">Valor sob consulta</p>
+                    
+                    <ul class="features-list">
+                        <li>1-3 processos automatizados</li>
+                        <li>Automação de e-mails</li>
+                        <li>Integração entre 2 sistemas</li>
+                        <li>Scripts personalizados</li>
+                        <li>Documentação do processo</li>
+                        <li>Treinamento da equipe</li>
+                        <li>2 meses de suporte</li>
+                    </ul>
+                    
+                    <div class="delivery-time">⏱️ Entrega em 10 dias úteis</div>
+                    
+                    <a href="https://wa.me/5567999476082?text=Olá! Tenho interesse em Automação Simples. Gostaria de receber um orçamento personalizado." target="_blank" class="btn btn-primary">Solicitar Orçamento Personalizado</a>
+                </div>
+
+                <!-- RPA Completo -->
+                <div class="price-card featured">
+                    <span class="popular-badge">⭐ MAIS POPULAR</span>
+                    <h3>RPA Completo</h3>
+                    <div class="price">A partir de R$ 8.000</div>
+                    <p class="price-period">Valor sob consulta</p>
+                    
+                    <ul class="features-list">
+                        <li>5-10 processos automatizados</li>
+                        <li>Robôs RPA inteligentes</li>
+                        <li>Múltiplas integrações</li>
+                        <li>Workflows complexos</li>
+                        <li>Dashboard de monitoramento</li>
+                        <li>Relatórios automáticos</li>
+                        <li>Notificações e alertas</li>
+                        <li>Documentação completa</li>
+                        <li>Treinamento avançado</li>
+                        <li>6 meses de suporte e ajustes</li>
+                    </ul>
+                    
+                    <div class="delivery-time">⏱️ Entrega em 30 dias úteis</div>
+                    
+                    <a href="https://wa.me/5567999476082?text=Olá! Tenho interesse em RPA Completo. Gostaria de receber um orçamento personalizado." target="_blank" class="btn btn-primary">Solicitar Orçamento Personalizado</a>
+                </div>
+
+                <!-- Automação Empresarial -->
+                <div class="price-card">
+                    <h3>Automação Empresarial</h3>
+                    <div class="price">A partir de R$ 20.000</div>
+                    <p class="price-period">Valor sob consulta</p>
+                    
+                    <ul class="features-list">
+                        <li>Automação completa da operação</li>
+                        <li>RPA com IA integrada</li>
+                        <li>Integrações ilimitadas</li>
+                        <li>Orquestração de processos</li>
+                        <li>BPM - Business Process Management</li>
+                        <li>Workflows enterprise</li>
+                        <li>Analytics avançado</li>
+                        <li>Monitoramento 24/7</li>
+                        <li>SLA garantido</li>
+                        <li>Equipe dedicada</li>
+                        <li>12 meses de evolução contínua</li>
+                    </ul>
+                    
+                    <div class="delivery-time">⏱️ Entrega em 60 dias úteis</div>
+                    
+                    <a href="https://wa.me/5567999476082?text=Olá! Tenho interesse em Automação Empresarial. Gostaria de receber um orçamento personalizado." target="_blank" class="btn btn-primary">Solicitar Orçamento Personalizado</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <div class="content">
+        <section class="cta-section">
+            <h2>Pronto para trabalhar menos e produzir mais?</h2>
+            <p>Agende uma análise gratuita e descubra quanto tempo sua empresa pode economizar!</p>
+            <a href="https://wa.me/5567999476082?text=Olá! Quero uma análise gratuita de automação de processos!" target="_blank" class="btn btn-primary">Agendar Análise Gratuita</a>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Three Birds Technology. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
